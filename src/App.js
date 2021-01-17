@@ -1,16 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import MemeGen from './components/MemeGen';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          My Meme-Generator
-        </p>
-      </header>
-    </div>
+    <>
+    <Header />
+    <MemeGen />
+    </>
   );
 }
 
