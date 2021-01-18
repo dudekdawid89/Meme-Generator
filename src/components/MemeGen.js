@@ -13,7 +13,7 @@ function MemeGen(){
             const data = await response.json()
             const memes = data.data.memes
             setAllMemes(memes)
-            console.log(memes[0])
+            // console.log(memes[0])
         })()
         
 
@@ -22,12 +22,17 @@ function MemeGen(){
     function handleChange(event){
         const {name, value} = event.target
         name === 'upperText' ? setUpperText(value) : setLowerText(value)
+    }
 
+    function handleSubmit(e){
+        e.preventDefault()
+        const randomNumber = Math.floor(Math.random() * allMemes.length)
+        setRandomImage(allMemes[randomNumber].url)
     }
 
 
     return(
-        <form className='form'>
+        <form className='form' onSubmit={handleSubmit}>
             <input 
                 type='text'
                 value={upperText}
@@ -43,9 +48,9 @@ function MemeGen(){
                 onChange={handleChange}
             />
             <img src={randomImage} />
+            <button>Generate New Meme</button>
             <p>{upperText}</p>
             <p>{lowerText}</p>
-
         </form>
     )
 }
