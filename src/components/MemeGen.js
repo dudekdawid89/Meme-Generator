@@ -1,4 +1,4 @@
-
+import '../MemeGen.css'
 import React, { useState, useEffect } from 'react'
 
 function MemeGen(){
@@ -26,32 +26,39 @@ function MemeGen(){
 
     function handleSubmit(e){
         e.preventDefault()
+        setUpperText('')
+        setLowerText('')
         const randomNumber = Math.floor(Math.random() * allMemes.length)
         setRandomImage(allMemes[randomNumber].url)
     }
 
 
     return(
-        <form className='form' onSubmit={handleSubmit}>
-            <input 
-                type='text'
-                value={upperText}
-                name='upperText'
-                placeholder="upper text"
-                onChange={handleChange}
-            />
-            <input
-                type='text'
-                value={lowerText}
-                name='lowerText'
-                placeholder="lower text"
-                onChange={handleChange}
-            />
-            <img src={randomImage} />
-            <button>Generate New Meme</button>
-            <p>{upperText}</p>
-            <p>{lowerText}</p>
-        </form>
+        <>
+            <form className='form' onSubmit={handleSubmit}>
+                <input 
+                    type='text'
+                    value={upperText}
+                    name='upperText'
+                    placeholder="upper text"
+                    onChange={handleChange}
+                />
+                <input
+                    type='text'
+                    value={lowerText}
+                    name='lowerText'
+                    placeholder="lower text"
+                    onChange={handleChange}
+                />
+                <button>Generate New Meme</button>
+
+            </form>
+            <div className="memeContainer">
+                    <img src={randomImage} />
+                    <p className='upperText'>{upperText}</p>
+                    <p className='lowerText'>{lowerText}</p>
+            </div>
+                </>
     )
 }
 
