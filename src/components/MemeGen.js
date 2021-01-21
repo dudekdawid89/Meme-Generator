@@ -40,14 +40,14 @@ function MemeGen(){
                     type='text'
                     value={upperText}
                     name='upperText'
-                    placeholder="upper text"
+                    placeholder="Upper Text"
                     onChange={handleChange}
                 />
                 <input
                     type='text'
                     value={lowerText}
                     name='lowerText'
-                    placeholder="lower text"
+                    placeholder="Lower Text"
                     onChange={handleChange}
                 />
                 <button>Generate New Meme</button>
